@@ -20,3 +20,6 @@ This app has written in flask and reactJs. It is a simple app.
 # Using CURL command
 * launch new terminal and execute below url to fetch data.
     `curl -X GET http://localhost:5000/getData`
+
+# API Document
+https://app.swaggerhub.com/apis/kumarask/CodeTest/1.0.0
