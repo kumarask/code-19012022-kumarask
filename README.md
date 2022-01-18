@@ -5,7 +5,7 @@ This app has written in flask and reactJs. It is a simple app.
 # Usage
 
 * clone this project using below command.\
-    ``
+    `git clone git@github.com:kumarask/code-19012022-kumarask.git`
 * Navigate into the project folder.\
     `cd code-19012022-kumarask`
 * Run `make build` it creates the virtual environment and install the app.
