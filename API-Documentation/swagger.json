@@ -1,0 +1,98 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "description" : "This is a simple API",
+    "version" : "1.0.0",
+    "title" : "Simple Code Test  API",
+    "contact" : {
+      "email" : "kumara1494@gmail.com"
+    }
+  },
+  "host" : "virtserver.swaggerhub.com",
+  "basePath" : "/kumarask/CodeTest/1.0.0",
+  "tags" : [ {
+    "name" : "user",
+    "description" : "Operations available to regular user"
+  } ],
+  "schemes" : [ "https", "http" ],
+  "paths" : {
+    "/getRoleByTeamName" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "list the role name",
+        "description" : "List the role name By passing team name in parameter",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "teamName",
+          "in" : "query",
+          "description" : "team name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the list of role that are mapping to the teamName."
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        }
+      }
+    },
+    "/getData" : {
+      "get" : {
+        "tags" : [ "user" ],
+        "summary" : "list the all records in database",
+        "description" : "List the all records in database",
+        "produces" : [ "application/json" ],
+        "parameters" : [ ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns the list of role that are mapping to the teamName."
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        }
+      }
+    },
+    "/createRecords" : {
+      "post" : {
+        "tags" : [ "user" ],
+        "summary" : "Insert data into the database",
+        "description" : "Pass an json with team name and role name",
+        "produces" : [ "application/json" ],
+        "parameters" : [ {
+          "name" : "teamName",
+          "in" : "query",
+          "description" : "team name",
+          "required" : true,
+          "type" : "string"
+        }, {
+          "name" : "roleName",
+          "in" : "query",
+          "description" : "role name",
+          "required" : true,
+          "type" : "string"
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Returns a dictionary object with key value pairs."
+          },
+          "400" : {
+            "description" : "bad input parameter"
+          },
+          "403" : {
+            "description" : "Forbidden"
+          }
+        }
+      }
+    }
+  }
+}
