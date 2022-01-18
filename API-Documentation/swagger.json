@@ -94,5 +94,26 @@
         }
       }
     }
+  },
+  "definitions" : {
+    "Model" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {
+          "type" : "integer",
+          "format" : "int64"
+        },
+        "teamName" : {
+          "type" : "string",
+          "format" : "string",
+          "example" : "DevOpsTeam"
+        },
+        "roleName" : {
+          "type" : "string",
+          "format" : "string",
+          "example" : "DevOpsEngineer"
+        }
+      }
+    }
   }
 }
