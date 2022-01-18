@@ -2,6 +2,18 @@
 
 This app has written in flask and reactJs. It is a simple app.
 
+# Prerequisite
+
+Install follow tools using below commands on ubuntu OS.
+
+* sudo apt install make
+* sudo apt install python3.8-venv
+* sudo apt install npm
+* sudo npm install n -g
+* sudo n stable
+* sudo install semver
+* sudo npm install -g npm@8.3.1
+
 # Usage
 
 * clone this project using below command.\
