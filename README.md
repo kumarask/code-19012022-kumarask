@@ -25,7 +25,7 @@ Install follow tools using below commands on ubuntu OS.
 * Launch firefox and type url (`http://localhost:5000`)
 * Fill the team name and role name input box, example team name is DevOpsTeam and role name is DevOpsEnggineer.
 * Click on Update button. it will create a new records and store it in a database.
-* Click on url search bar and type the url (`http://localhost:5000/getRoleByTeamName?teamName=DevOpsTeam`)
+* Click on url search bar and type the url (`http://localhost:5000/getRoleNamesByTeamName?teamName=DevOpsTeam`)
 * Run `make clean` command In case if you want to clean the environment. 
 
 
@@ -34,4 +34,4 @@ Install follow tools using below commands on ubuntu OS.
     `curl -X GET http://localhost:5000/getData`
 
 # API Document
-https://app.swaggerhub.com/apis/kumarask/CodeTest/1.0.0
+http://localhost:5000/swagger

@@ -4,9 +4,10 @@
         codeTest.app
 """
 import logging
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS, cross_origin
 from codeTest.core import db
+from flask_swagger_ui import get_swaggerui_blueprint
 
 
 app = Flask(__name__, static_url_path="")
@@ -14,6 +15,17 @@ CORS(app)
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
+
+
+SWAAGGER_URL = "/swagger"
+API_URL = "/api-docs/swagger.json"
+swaggerui_blueprint = get_swaggerui_blueprint(
+    SWAAGGER_URL, API_URL,
+    config={
+        "app_name": "CodeTest"
+    }
+)
+app.register_blueprint(swaggerui_blueprint, url_prefix=SWAAGGER_URL)
 
 
 @app.route("/")
@@ -60,19 +72,19 @@ def createRecords():
     return jsonify(request.json)
 
 
-@app.route("/getData", methods=["GET"])
+@app.route("/getAllRecords", methods=["GET"])
 @cross_origin()
-def getData():
+def getAllRecords():
     """A Method is used for fetch all the data from database.
 
     Descriptions:
         This endpoints can be used in uri to fetch the data.
 
     Usage:
-        http://localhost:5000/getData
+        http://localhost:5000/getAllRecords
 
     Decorators:
-        @app.route("/getData", methods=["GET"])
+        @app.route("/getAllRecords", methods=["GET"])
         @cross_origin
 
     Returns:
@@ -97,9 +109,9 @@ def getData():
     return jsonify(records)
 
 
-@app.route("/getRoleByTeamName", methods=["GET"])
+@app.route("/getRoleNamesByTeamName", methods=["GET"])
 @cross_origin()
-def getRoleByTeamName():
+def getRoleNamesByTeamName():
     """A Method is used for fetch the roleName by using teamName as a
     Input in url.
 
@@ -107,10 +119,10 @@ def getRoleByTeamName():
         This endpoints can be used in web url.
 
     Usage:
-        http://localhost:5000/getRoleByTeamName?teamName=DevOpsTeam
+        http://localhost:5000/getRoleNamesByTeamName?teamName=DevOpsTeam
 
     Decorators:
-        @app.route("/getRoleByTeamName, methods=["GET"])
+        @app.route("/getRoleNamesByTeamName, methods=["GET"])
         @cross_origin
 
     Returns:
@@ -128,7 +140,6 @@ def getRoleByTeamName():
         )
     
     return jsonify(result)
-
 
 
 if __name__ == "__main__":

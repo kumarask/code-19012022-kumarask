@@ -19,6 +19,7 @@ build: $(VENV)/bin/activate
 	cd codeTest/client && npm install
 	cd codeTest/client && npm run build && npm run postbuild
 	$(COPY) -a codeTest/static $(VENV)/
+	$(COPY) -a codeTest/api-docs/swagger.json $(VENV)/static/api-docs/
 
 
 $(VENV)/bin/activate: requirements.txt

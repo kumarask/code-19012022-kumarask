@@ -1,0 +1,133 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "code test",
+        "version": "0.1.0",
+        "title": "CodeTest",
+        "contact": {
+            "email": "kumara1494@gmail.com"
+        },
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+
+    "tags": [
+        {
+            "name": "CodeTest Request",
+            "descriptions": "Sample API for storing team name and role name and get request role name by team name"
+        }
+    ],
+
+    "paths" : {
+        "/createRecords" : {
+            "post" : {
+                "tags" : [ 
+                    "CodeTest Request" 
+                ],
+                "summary" : "Insert team name and role name into the database and returns same data in json",
+                "requestBody": {
+                    "description": "Code Test Request Object",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/dataPipeline"
+                            }
+                        }
+                    }
+                },
+                "produces" : [ "application/json" ],
+                "responses" : {
+                    "200" : {
+                        "description" : "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/dataPipeline"
+                        }
+                    },
+                    "201" : {
+                        "description" : "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/dataPipeline"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/getRoleNamesByTeamName" : {
+            "get" : {
+                "tags" : [ 
+                    "CodeTest Request" 
+                ],
+                "summary" : "Returns list of role names",
+                "produces" : [ "application/json" ],
+                "parameters" : [ {
+                    "name" : "teamName",
+                    "in" : "query",
+                    "description" : "team name",
+                    "required" : true,
+                    "type" : "string"
+                } ],
+                "responses" : {
+                    "200" : {
+                        "description" : "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/dataPipeline"
+                        }
+                    }
+                }
+            }
+        },
+        "/getAllRecords" : {
+            "get" : {
+                "tags" : [ 
+                    "CodeTest Request" 
+                ],
+                "summary" : "Returns list of all the records from database",
+                "produces" : [ "application/json" ],
+                "parameters" : [ ],
+                "responses" : {
+                    "200" : {
+                        "description" : "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/dataPipeline"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "dataPipeline": {
+                "type": "object",
+                "properties": {
+                    "teamID": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "teamName": {
+                        "type": "string",
+                        "format": "string",
+                        "example": "DevOpsTeam"
+                    },
+                    "roleName": {
+                        "type": "string",
+                        "format": "string",
+                        "example": "DevOpsEngineer"
+                    }
+                }
+            }
+        }
+    }
+}
