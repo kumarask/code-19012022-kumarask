@@ -11,7 +11,7 @@ Install follow tools using below commands on ubuntu OS.
 * sudo apt install npm
 * sudo npm install n -g
 * sudo n stable
-* sudo install semver
+* sudo npm install semver
 * sudo npm install -g npm@8.3.1
 
 # Usage
@@ -31,7 +31,7 @@ Install follow tools using below commands on ubuntu OS.
 
 # Using CURL command
 * launch new terminal and execute below url to fetch data.
-    `curl -X GET http://localhost:5000/getData`
+    `curl -X GET http://localhost:5000/getAllRecords`
 
 # API Document
 http://localhost:5000/swagger
